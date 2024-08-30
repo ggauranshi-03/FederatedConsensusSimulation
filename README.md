@@ -62,3 +62,6 @@ Each client (Miner) trains a local model on its subset of the data, and the serv
    - The Flower server uses the FedAvg strategy to aggregate the weights from all clients and updates the global model.
 
 This project provides a basic implementation of federated learning using Flower, demonstrating how multiple clients can collaborate to train a global model without sharing their local data.
+
+## Simulation Screenshots: 
+- The screenshots have been uploaded !
