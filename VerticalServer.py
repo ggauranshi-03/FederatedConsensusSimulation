@@ -1,21 +1,18 @@
-# server.py
+import logging
 
 import flwr as fl
 from flwr.server.strategy import FedAvg
 
+logging.basicConfig(level=logging.DEBUG)
+strategy = FedAvg(
+    min_fit_clients=1,
+    min_available_clients=1,
+    min_evaluate_clients=1,
+)
+config = fl.server.ServerConfig(num_rounds=1)
 
-def main():
-    strategy = FedAvg(
-        min_fit_clients=4,
-        min_available_clients=4,
-    )
-
-    fl.server.start_server(
-        server_address="0.0.0.0:8000",
-        config=fl.server.ServerConfig(num_rounds=5),
-        strategy=strategy,
-    )
-
-
-if __name__ == "__main__":
-    main()
+fl.server.start_server(
+    server_address="127.0.0.1:8080",
+    config=fl.server.ServerConfig(num_rounds=1),
+    strategy=strategy,
+)
